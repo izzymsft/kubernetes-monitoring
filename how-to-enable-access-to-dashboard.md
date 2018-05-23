@@ -4,6 +4,8 @@
 
 This is based on the steps here https://github.com/kubernetes/dashboard/wiki/Creating-sample-user
 
+Set up the service account and cluster role binding for the admin account used for authenticating before accessing the Dashboard
+
 ```shell
 
 kubectl create -f dashboard-admin.yaml
@@ -12,8 +14,6 @@ kubectl create -f dashboard-admin.yaml
 ## Setting Up Default Namespace
 
 To avoid having to specify the namespace each type we need to look up a resource, lets set the default namespace as "kube-system" in the configs
-
-
 
 ```shell
 
