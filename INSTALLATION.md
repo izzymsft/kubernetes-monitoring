@@ -14,7 +14,7 @@ cd kubernetes-monitoring
 
 ```
 
-## Setting up ElasticSearch
+## Setting up ElasticSearch 3-Node Cluster
 Use the following steps to setup the ElasticSearch cluster
 
 ```shell
@@ -36,17 +36,17 @@ kubectl describe service elasticsearch-loadbalancer
 
 This command sets up 3 data nodes for the ElasticSearch cluster using Ephemeral Storage.
 
-Once the cluster is up and the LoadBalancer Ingress IP is available, you should be able to reach the ElasticSearch REST API using that IP and port number as follows:
+```shell
+# Set up the ElasticSearch cluster (3 ElasticSearch data nodes)
+kubectl create -f elasticsearch/elasticsearch-statefulset.yaml
+```
+
+Once the statefulset is up and the LoadBalancer Ingress IP is available, you should be able to reach the ElasticSearch REST API using that IP and port number as follows:
 
 ```shell
 
 http://104.136.220.85:9200
 
-```
-
-```shell
-# Set up the ElasticSearch cluster (3 ElasticSearch data nodes)
-kubectl create -f elasticsearch/elasticsearch-statefulset.yaml
 ```
 
 #### Setting up the ElasticSearch Environment ConfigMap
@@ -78,3 +78,27 @@ kubectl create -f fluentd/fluentd-elasticsearch-configmap.yaml
 kubectl create -f fluentd/fluentd-elasticsearch-daemonset.yaml  
 
 ```
+
+
+## Setting up Kibana UI
+
+These steps will set up the Kibana User Interface to access log events from ElasticSearch
+
+```shell
+
+kubectl create -f kibana/kibana-services.yaml
+
+kubectl create -f kibana/kibana-deployment.yaml  
+
+```
+
+Once the Load Balancer Service for Kibana Is Ready you should be able to retrieve the IP by describing the service as follows:
+
+```shell
+
+kubectl describe service kibana-loadbalancer
+
+```
+
+The Kibana UI can be accessed on port 5601 on the Public IP
+
