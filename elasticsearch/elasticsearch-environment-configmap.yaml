@@ -1,9 +1,9 @@
 ---
 apiVersion: v1
 data:
-  elasticsearch.external.host: 168.61.41.70
+  elasticsearch.external.host: 104.136.2.95
   elasticsearch.external.port: "9200"
-  elasticsearch.external.url: http://168.61.41.70:9200
+  elasticsearch.external.url: http://104.136.2.95:9200
   elasticsearch.internal.host: elasticsearch-logging
   elasticsearch.internal.port: "9200"
   elasticsearch.internal.url: http://elasticsearch-logging:9200
