@@ -100,5 +100,5 @@ kubectl describe service kibana-loadbalancer
 
 ```
 
-The Kibana UI can be accessed on port 5601 on the Public IP
+The Kibana UI can be accessed on port 5601 on the Public IP. You should be able to accept "logstash-*" as the mapping pattern and specify @timestamp as the date field.
 
