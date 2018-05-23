@@ -1,4 +1,6 @@
+# Setting up Kubernetes Dashboard
 
+These steps are used to setup access to the K8S Dashboard if you need it.
 
 ## Create the Dashboard Service Account and Cluster Role Binding
 
