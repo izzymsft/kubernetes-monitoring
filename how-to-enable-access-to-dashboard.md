@@ -4,7 +4,10 @@
 
 This is based on the steps here https://github.com/kubernetes/dashboard/wiki/Creating-sample-user
 
-$ kubectl create -f dashboard-admin.yaml
+```shell
+
+kubectl create -f dashboard-admin.yaml
+```
 
 ## Setting Up Default Namespace
 
