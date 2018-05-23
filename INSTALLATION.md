@@ -36,6 +36,14 @@ kubectl describe service elasticsearch-loadbalancer
 
 This command sets up 3 data nodes for the ElasticSearch cluster using Ephemeral Storage.
 
+Once the cluster is up and the LoadBalancer Ingress IP is available, you should be able to reach the ElasticSearch REST API using that IP and port number as follows:
+
+```shell
+
+http://104.136.220.85:9200
+
+```
+
 ```shell
 # Set up the ElasticSearch cluster (3 ElasticSearch data nodes)
 kubectl create -f elasticsearch/elasticsearch-statefulset.yaml
