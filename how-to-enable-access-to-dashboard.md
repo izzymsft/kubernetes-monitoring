@@ -1,38 +1,49 @@
 
 
-1. Create the Dashboard Service Account and Cluster Role Binding
+## Create the Dashboard Service Account and Cluster Role Binding
 
 This is based on the steps here https://github.com/kubernetes/dashboard/wiki/Creating-sample-user
 
 $ kubectl create -f dashboard-admin.yaml
 
-2. To avoid having to specify the namespace each type we need to look up a resource, lets set the default namespace as "kube-system" in the configs
+## Setting Up Default Namespace
 
-$ kubectl config set-context $(kubectl config current-context) --namespace=<insert-namespace-name-here>
+To avoid having to specify the namespace each type we need to look up a resource, lets set the default namespace as "kube-system" in the configs
+
+
 
 ```shell
+
+### This is the syntax
+
+kubectl config set-context $(kubectl config current-context) --namespace=<insert-namespace-name-here>
+
 kubectl config set-context $(kubectl config current-context) --namespace=kube-system
 ```
 
-Validate it
+## Validate The Configuration Change
 
 ```shell
 kubectl config view | grep namespace
 ```
 
-3. Let's verify if the service account was created
+## Let's verify if the service account was created
 
 ```shell
 kubectl get secret | grep admin-user
 ```
 
-4. Let's retrieve the access token, using the secret name retrieved from the previous step
+## Retrieve the Access Token
+
+Let's retrieve the access token, using the secret name retrieved from the previous step
 
 ```shell
 kubectl describe secret admin-user-token-6mc8b
 ```
 
-5. Use the token to log into the dashboard when prompted for a valid Bearer Token
+## Connect to the Dashboard
+
+Use the token to log into the dashboard when prompted for a valid Bearer Token
 
 Open a different console window and run the following command to bring up the proxy necessary for accessing the dashboard
 
