@@ -60,11 +60,13 @@ These steps will install the objects necessary to aggregate log events from the 
 
 ```shell
 
+# Set up the ServiceAccount, ClusterRole and ClusterRoleBinding
 kubectl create -f fluentd/fluentd-elasticsearch-roles.yaml
 
+# Set up the Config Map for FluentD
 kubectl create -f fluentd/fluentd-elasticsearch-configmap.yaml  
 
+# Install the Daemonset that grabs log events from all K8s nodes within the cluster
 kubectl create -f fluentd/fluentd-elasticsearch-daemonset.yaml  
 
 ```
-
