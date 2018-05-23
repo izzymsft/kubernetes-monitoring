@@ -13,21 +13,23 @@ spec:
   - port: 9200
     protocol: TCP
     targetPort: http
+    name: http
   - port: 9300
     protocol: TCP
     targetPort: transport
+    name: transport
   selector:
     k8s-app: elasticsearch-logging
 ---
 apiVersion: v1
 kind: Service
-type: NodePort
 metadata:
   name: elasticsearch-external
   namespace: kube-system
   labels:
     k8s-app: elasticsearch-logging
 spec:
+  type: NodePort
   ports:
   - port: 9200
     targetPort: 9200
