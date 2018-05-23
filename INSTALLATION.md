@@ -12,6 +12,12 @@ kubectl create -f elasticsearch/elasticsearch-roles.yaml
 kubectl create -f elasticsearch/elasticsearch-services.yaml 
 ```
 
+Once the services are up, you can grab the LoadBalancer ingress IP that will be used to route public traffic to the ElasticSearch cluster via Kibana from the following command:
+
+```shell
+kubectl describe service elasticsearch-loadbalancer
+```
+
 ### Setting up the ElasticSearch StatefulSet
 
 This command sets up 3 data nodes for the ElasticSearch cluster using Ephemeral Storage.
@@ -25,7 +31,7 @@ kubectl create -f elasticsearch/elasticsearch-statefulset.yaml
 Once the external service is up and running, please grab the Public IP address from the LoadBalancer Ingress IP and update the ConfigMap definition values for the elasticsearch.external.url and elasticsearch.external.host config map values.
 
 ```shell
-kubectl describe service elasticsearch-loadbalancer
+vim elasticsearch/elasticsearch-environment-configmap.yaml
 ```
 
 Once the value has been placed in the elasticsearch-environment-configmap.yaml file you can create the ConfigMap object
