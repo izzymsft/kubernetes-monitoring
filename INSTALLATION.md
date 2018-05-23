@@ -1,5 +1,10 @@
 # Installation Steps
 
+## Disclaimer
+This setup uses EmptyDir ephemeral storage to house the ElasticSearch data. It also does not have X-Pack security enabled.
+It is only recommended for monitoring development environments and not for Production.
+For production, you need to use Kibana and ElasticSearch images that utilize X-Pack security to enable Authentication and Authorization to gain access to the data in ElasticSearch as well as the Kibana UI. You will also need to use Persistent storage for the ElasticSearch stateful set so that the data from the ElasticSearch data nodes can survive pod restarts or relocation to other k8s nodes.
+
 ## Check Out the Kubernetes Resources YAML Files
 
 Get the codebase and then switch to the v2 branch
