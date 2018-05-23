@@ -18,7 +18,7 @@ The LoadBalancer services take about 3 to 5 minutes to come up. Once the service
 kubectl describe service elasticsearch-loadbalancer
 ```
 
-### Setting up the ElasticSearch StatefulSet
+#### Setting up the ElasticSearch StatefulSet
 
 This command sets up 3 data nodes for the ElasticSearch cluster using Ephemeral Storage.
 
@@ -27,7 +27,7 @@ This command sets up 3 data nodes for the ElasticSearch cluster using Ephemeral 
 kubectl create -f elasticsearch/elasticsearch-statefulset.yaml
 ```
 
-### Setting up the ElasticSearch Environment ConfigMap
+#### Setting up the ElasticSearch Environment ConfigMap
 Once the external service is up and running, please grab the Public IP address from the LoadBalancer Ingress IP and update the ConfigMap definition values for the elasticsearch.external.url and elasticsearch.external.host config map values.
 
 ```shell
