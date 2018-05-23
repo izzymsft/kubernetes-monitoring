@@ -54,3 +54,17 @@ Once the value has been placed in the elasticsearch-environment-configmap.yaml f
 kubectl create -f elasticsearch/elasticsearch-environment-configmap.yaml
 ```
 
+## Setting Up Fluentd DaemonSets
+
+These steps will install the objects necessary to aggregate log events from the k8s cluster and ship them to ElasticSearch
+
+```shell
+
+kubectl create -f fluentd/fluentd-elasticsearch-roles.yaml
+
+kubectl create -f fluentd/fluentd-elasticsearch-configmap.yaml  
+
+kubectl create -f fluentd/fluentd-elasticsearch-daemonset.yaml  
+
+```
+
