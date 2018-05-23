@@ -10,13 +10,18 @@ kubectl create -f elasticsearch/elasticsearch-roles.yaml
 
 # Set up the Internal and External Services
 kubectl create -f elasticsearch/elasticsearch-services.yaml 
-
-# Set up the ElasticSearch cluster (3 nodes)
-kubectl create -f elasticsearch/elasticsearch-statefulset.yaml
-
 ```
 
-## Setting up the ElasticSearch Environment ConfigMap
+### Setting up the ElasticSearch StatefulSet
+
+This command sets up 3 data nodes for the ElasticSearch cluster using Ephemeral Storage.
+
+```shell
+# Set up the ElasticSearch cluster (3 ElasticSearch data nodes)
+kubectl create -f elasticsearch/elasticsearch-statefulset.yaml
+```
+
+### Setting up the ElasticSearch Environment ConfigMap
 Once the external service is up and running, please grab the Public IP address from the LoadBalancer Ingress IP and update the ConfigMap definition values for the elasticsearch.external.url and elasticsearch.external.host config map values.
 
 ```shell
