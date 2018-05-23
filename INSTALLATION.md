@@ -13,9 +13,11 @@ Get the codebase and then switch to the v2 branch
 
 git clone git@github.com:izzyacademy/kubernetes-monitoring.git
 
+cd kubernetes-monitoring
+
 git checkout v2
 
-cd kubernetes-monitoring
+git pull
 
 ```
 
