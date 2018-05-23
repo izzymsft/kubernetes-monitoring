@@ -8,4 +8,3 @@ The Fluentd will be deployed as a Daemonset running on all nodes in the cluster
 
 The Kibana app will be deployed as a single pod in the K8S cluster
 
-
