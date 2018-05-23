@@ -1,7 +1,18 @@
 # Installation Steps
 
 ## Check Out the Kubernetes Resources YAML Files
-git clone 
+
+Get the codebase and then switch to the v2 branch
+
+```shell
+
+git clone git@github.com:izzyacademy/kubernetes-monitoring.git
+
+git checkout v2
+
+cd kubernetes-monitoring
+
+```
 
 ## Setting up ElasticSearch
 Use the following steps to setup the ElasticSearch cluster
