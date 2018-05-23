@@ -1,5 +1,8 @@
 # Installation Steps
 
+## Check Out the Kubernetes Resources YAML Files
+git clone 
+
 ## Setting up ElasticSearch
 Use the following steps to setup the ElasticSearch cluster
 
