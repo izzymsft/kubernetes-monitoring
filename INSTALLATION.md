@@ -12,7 +12,7 @@ kubectl create -f elasticsearch/elasticsearch-roles.yaml
 kubectl create -f elasticsearch/elasticsearch-services.yaml 
 ```
 
-Once the services are up, you can grab the LoadBalancer ingress IP that will be used to route public traffic to the ElasticSearch cluster via Kibana from the following command:
+The LoadBalancer services take about 3 to 5 minutes to come up. Once the services are up, you can grab the LoadBalancer ingress IP that will be used to route public traffic to the ElasticSearch cluster via Kibana from the following command:
 
 ```shell
 kubectl describe service elasticsearch-loadbalancer
