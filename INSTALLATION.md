@@ -38,6 +38,19 @@ git pull
 
 ```
 
+## Setting Up Default Namespace
+
+To avoid having to specify the namespace each type we need to look up a resource, lets set the default namespace as "kube-system" in the configs
+
+```shell
+
+### This is the syntax
+
+kubectl config set-context $(kubectl config current-context) --namespace=<insert-namespace-name-here>
+
+kubectl config set-context $(kubectl config current-context) --namespace=kube-system
+```
+
 ## Setting up ElasticSearch 3-Node Cluster
 Use the following steps to setup the ElasticSearch cluster
 
