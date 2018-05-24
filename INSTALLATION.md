@@ -10,7 +10,9 @@ For production, you need to use Kibana and ElasticSearch images that utilize X-P
 Here are a list of Docker images for Kibana and ElasticSearch
 
 https://www.docker.elastic.co/#
+
 https://www.elastic.co/guide/en/elasticsearch/reference/6.2/docker.html#_image_types
+
 https://www.elastic.co/guide/en/kibana/6.2/docker.html#image-type
 
 
