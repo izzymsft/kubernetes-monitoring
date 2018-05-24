@@ -5,6 +5,21 @@ This setup uses EmptyDir ephemeral storage to house the ElasticSearch data. It a
 It is only recommended for monitoring development environments and not for Production.
 For production, you need to use Kibana and ElasticSearch images that utilize X-Pack security to enable Authentication and Authorization to gain access to the data in ElasticSearch as well as the Kibana UI. You will also need to use Persistent storage large enough to support the amount of data needed for the ElasticSearch stateful set so that the data from the ElasticSearch data nodes can survive pod restarts or relocation to other k8s nodes. Experience managing ElasticSearch clusters is necessary for production scenarios. The daily data volume and retention policies influence the amount of storage needed.
 
+#### Docker Images for Kibana and ElasticSearch
+
+Here are a list of Docker images for Kibana and ElasticSearch
+
+https://www.docker.elastic.co/#
+https://www.elastic.co/guide/en/elasticsearch/reference/6.2/docker.html#_image_types
+https://www.elastic.co/guide/en/kibana/6.2/docker.html#image-type
+
+
+#### Subscription Options for ElasticSearch and Kibana with XPack Security
+
+X-Pack Security is enabled in the platinum image. The platinum image includes a trial license for 30 days. After that, you can obtain one of the available subscriptions or revert to a Basic licence. To access your cluster, it’s necessary to set an initial password for the elastic user. The initial password can be set at start up time via the ELASTIC_PASSWORD environment variable.
+
+https://www.elastic.co/subscriptions
+
 ## Check Out the Kubernetes Resources YAML Files
 
 Get the codebase and then switch to the v2 branch
