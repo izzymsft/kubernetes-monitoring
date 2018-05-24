@@ -83,8 +83,7 @@ In production scenarios, you want the data to survive pod relocation and restart
 kubectl create -f storage/azuredisk-storage-class.yaml
 
 # Create the ElasticSearch Cluster with the Statefulset that utilizes the dynamic volume provisioning
- kubectl create -f elasticsearch/elasticsearch-statefulset-persistent-volume.yaml
- 
+kubectl create -f elasticsearch/elasticsearch-statefulset-persistent-volume.yaml
 ```
 
 #### Setting up the ElasticSearch Environment ConfigMap
