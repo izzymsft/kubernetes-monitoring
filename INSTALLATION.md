@@ -73,6 +73,39 @@ kubectl create -f elasticsearch/elasticsearch-environment-configmap.yaml
 
 These steps will install the objects necessary to aggregate log events from the k8s cluster and ship them to ElasticSearch
 
+#### Label the Nodes for Fluentd Daemonsets
+
+You will also have to label all the kubernetes nodes with the following label before deploying the config maps and fluentd daemonsets
+
+```shell
+beta.kubernetes.io/fluentd-ds-ready=true
+```
+
+Get the names of your nodes
+
+```shell
+$ kubectl get nodes
+
+NAME                        STATUS    ROLES     AGE       VERSION
+k8s-agentpool1-30584733-0   Ready     agent     6d        v1.9.7
+k8s-agentpool1-30584733-1   Ready     agent     6d        v1.9.7
+k8s-agentpool1-30584733-2   Ready     agent     6d        v1.9.7
+k8s-master-30584733-0       Ready     master    6d        v1.9.7
+```
+
+Use the following syntax to label each node 
+
+```shell
+$ kubectl label nodes <node-name> <label-key>=<label-value>
+
+$ kubectl label nodes k8s-agentpool1-30584733-0 beta.kubernetes.io/fluentd-ds-ready=true
+$ kubectl label nodes k8s-agentpool1-30584733-1 beta.kubernetes.io/fluentd-ds-ready=true
+$ kubectl label nodes k8s-agentpool1-30584733-2 beta.kubernetes.io/fluentd-ds-ready=true
+$ kubectl label nodes k8s-master-30584733-0 beta.kubernetes.io/fluentd-ds-ready=true
+```
+
+Once the nodes have been labelled you can now set up the Fluentd objects
+
 ```shell
 
 # Set up the ServiceAccount, ClusterRole and ClusterRoleBinding
