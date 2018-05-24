@@ -73,6 +73,20 @@ http://104.136.220.85:9200
 
 ```
 
+#### Using AzureDisk for Persistent Storage
+In production scenarios, you want the data to survive pod relocation and restarts. If you are running on Azure you can use Azure Disk to set up a storage class that can be used to dynamically provision data volumes for the stateful sets. If you go that route, you can use the following two steps instead to 
+(a) Set up the Storage Class for Azure Disk
+(b) Set up the Statefulset that utilizes Azure Disk Storage Class for the Persistent VolumeClaimTemplate
+
+```shell
+# Set up the Azure Disk Storage Class for Dynamic Volume Provisioning
+kubectl create -f storage/azuredisk-storage-class.yaml
+
+# Create the ElasticSearch Cluster with the Statefulset that utilizes the dynamic volume provisioning
+ kubectl create -f elasticsearch/elasticsearch-statefulset-persistent-volume.yaml
+ 
+```
+
 #### Setting up the ElasticSearch Environment ConfigMap
 Once the external service is up and running, please grab the Public IP address from the LoadBalancer Ingress IP and update the ConfigMap definition values for the elasticsearch.external.url and elasticsearch.external.host config map values.
 
