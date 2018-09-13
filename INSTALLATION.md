@@ -162,6 +162,22 @@ kubectl create -f kibana/kibana-deployment.yaml
 
 ```
 
+
+## Running Some Apps to See the Logs Generated
+
+```shell
+
+Run this sample pod to start generating logs
+
+$ kubectl run --restart=Never --image=gcr.io/kuar-demo/kuard-amd64:1 kuard
+
+Use this to open the app locally in your browser to generate logs
+
+$ kubectl port-forward kuard 8080:8080
+
+```
+
+
 Once the Load Balancer Service for Kibana Is Ready you should be able to retrieve the IP by describing the service as follows:
 
 ```shell
